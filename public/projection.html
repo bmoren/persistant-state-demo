@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>projection</title>
+  </head>
+  <body>
+
+
+
+  </body>
+  <!--  include socket.io client so we can connect to our server with a websocket easily.-->
+  <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+  <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+    var socket = io.connect('http://150.253.89.248:3000') //set up a place for us to connect to, and try to connect.
+
+    socket.on('connect', function(data){ // when we are connected do something.
+      console.log("connected to the server" + socket.id); // log out our socket's id, some long garbled number letter thing that is unique!
+    })
+
+    socket.on('projectionRectangle', function(data){ // if we see a projectionRectangle message then do some stuff
+
+        //use jQuery to add a rect to the screen, notice the alternate jQ syntax!
+        var h = window.innerHeight;
+        var w = window.innerWidth;
+
+        //first make a div, chage the css, then append to the body. this is not possible with the 'normal' syntax, becayse order of operations (with chained methods)
+        $('<div></div>').css({
+          'position':'absolute',
+          'top' : Math.random() * h,
+          'left' : Math.random() * w,
+          'width': Math.random() * 500,
+          'height': Math.random() * 500,
+          'border': '1px solid black'
+        }).appendTo('body')
+
+    })
+
+    </script>
+</html>
