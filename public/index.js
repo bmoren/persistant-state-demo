@@ -1,4 +1,6 @@
-var socket = io.connect('http://localhost:80') // connect to the server
+var port = process.env.PORT || 8000
+
+var socket = io.connect('http://localhost:'+ port) // connect to the server
 
 socket.on('connect', function(data){ // when connected, do something
   console.log("connected to the server" + socket.id); // log out out id
