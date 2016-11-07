@@ -1,4 +1,4 @@
-var socket = io.connect('http://localhost:3000') //set up a place for us to connect to, and try to connect.
+var socket = io.connect('http://localhost:80') //set up a place for us to connect to, and try to connect.
 
 socket.on('connect', function(data){ // when we are connected do something.
   console.log("connected to the server" + socket.id); // log out our socket's id, some long garbled number letter thing that is unique!
