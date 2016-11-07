@@ -1,5 +1,5 @@
-var port = process.env.PORT || 8000
-var socket = io.connect('http://localhost:'+ port) // connect to the server
+// var port = process.env.PORT || 8000
+var socket = io.connect() // connect to the server
 
 
 socket.on('connect', function(data){ // when we are connected do something.
