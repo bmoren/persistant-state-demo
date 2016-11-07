@@ -5,6 +5,7 @@ var server = require('http').Server( app ) // start a server instance on a port
 var io = require('socket.io')(server) // use socket.io for real time connections aka. wesockets
 
 var port = process.env.PORT || 8000
+
 server.listen(port, function() {
     console.log("App is running on port " + port);
 });
